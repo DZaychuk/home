@@ -17,7 +17,7 @@ func main() {
 	var err error
 	var staff []types.Employee
 
-	if len(path) == "" {
+	if len(path) == " " {
 		path = "data.json"
 	}
 

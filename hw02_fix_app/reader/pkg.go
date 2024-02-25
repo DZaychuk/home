@@ -3,6 +3,7 @@ package reader
 import (
 	"encoding/json"
 	"fmt"
+	"go/types"
 	"io"
 	"os"
 )

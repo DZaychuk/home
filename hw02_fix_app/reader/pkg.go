@@ -3,12 +3,18 @@ package reader
 import (
 	"encoding/json"
 	"fmt"
-	"go/types"
 	"io"
 	"os"
 )
 
-func ReadJSON(filePath string) ([]types.Employee, error) {
+type Employee struct {
+	UserID       int    `json:"user_id"`
+	Age          int    `json:"age"`
+	Name         string `json:"name"`
+	DepartmentID int    `json:"department_id"`
+}
+
+func ReadJSON(filePath string) ([]Employee, error) {
 	f, err := os.Open(filePath)
 	if err != nil {
 		return nil, fmt.Errorf("Error: %v", err)
@@ -20,7 +26,7 @@ func ReadJSON(filePath string) ([]types.Employee, error) {
 
 	}
 
-	var data []types.Employee
+	var data []Employee
 
 	err = json.Unmarshal(bytes, &data)
 	if err != nil {
